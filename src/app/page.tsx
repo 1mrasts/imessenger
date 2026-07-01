@@ -1,5 +1,5 @@
 import { auth } from '@/config/auth'
-import SignOut from '@/features/SignOut'
+import { SignOut } from '@/features/SignOut'
 import type { Metadata } from 'next'
 import styles from './page.module.css'
 import SignIn from './signIn/page'

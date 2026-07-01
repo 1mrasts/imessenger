@@ -1,6 +1,6 @@
 import { auth, signOut } from '@/config/auth'
 
-export default async function SignOut() {
+export async function SignOut() {
 	const session = await auth()
 
 	if (!session?.user) return null

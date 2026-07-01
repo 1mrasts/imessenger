@@ -1,6 +1,6 @@
 import { signIn } from '@/config/auth'
 
-export default function SignIn() {
+export default async function SignIn() {
 	return (
 		<form
 			action={async () => {
