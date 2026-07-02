@@ -4,7 +4,9 @@ import { redirect } from 'next/navigation'
 export default async function Profile() {
 	const session = await auth()
 
-	if (!session) redirect('/signIn')
+	if (!session) {
+		redirect('/signIn')
+	}
 
 	return (
 		<main>
