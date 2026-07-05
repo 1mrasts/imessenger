@@ -42,3 +42,28 @@ export type VerificationToken = Prisma.VerificationTokenModel
  * 
  */
 export type Authenticator = Prisma.AuthenticatorModel
+/**
+ * Model Chat
+ * 
+ */
+export type Chat = Prisma.ChatModel
+/**
+ * Model GroupInfo
+ * 
+ */
+export type GroupInfo = Prisma.GroupInfoModel
+/**
+ * Model ChatMembers
+ * 
+ */
+export type ChatMembers = Prisma.ChatMembersModel
+/**
+ * Model Message
+ * 
+ */
+export type Message = Prisma.MessageModel
+/**
+ * Model MessageRead
+ * 
+ */
+export type MessageRead = Prisma.MessageReadModel

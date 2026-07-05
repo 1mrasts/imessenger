@@ -18,8 +18,12 @@ model User {
   // Optional for WebAuthn support
   Authenticator Authenticator[]
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  groupInfos  GroupInfo[]
+  message     Message[]
+  chatMembers ChatMembers[]
+  messageRead MessageRead[]
 }
 
 model Account {
@@ -75,4 +79,56 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@id([userId, credentialID])
+}
+
+enum ChatType {
+  chat
+  group
+}
+
+model Chat {
+  chat_id     Int           @id @default(autoincrement())
+  chat_type   ChatType
+  created_at  DateTime
+  groupInfos  GroupInfo?
+  chatMembers ChatMembers[]
+  message     Message[]
+}
+
+model GroupInfo {
+  chat_id    Int    @id
+  chat       Chat   @relation(fields: [chat_id], references: [chat_id])
+  group_name String
+  owner_id   String
+  owner      User   @relation(fields: [owner_id], references: [id])
+}
+
+model ChatMembers {
+  chat_members_id Int    @id @default(autoincrement())
+  chat_id         Int
+  chat            Chat   @relation(fields: [chat_id], references: [chat_id])
+  user_id         String
+  user            User   @relation(fields: [user_id], references: [id])
+}
+
+model Message {
+  message_id      Int      @id @default(autoincrement())
+  chat_id         Int
+  chat            Chat     @relation(fields: [chat_id], references: [chat_id])
+  user_id         String
+  user            User     @relation(fields: [user_id], references: [id])
+  message_content String
+  sent_at         DateTime
+
+  reads MessageRead[]
+}
+
+model MessageRead {
+  message_id Int
+  message    Message  @relation(fields: [message_id], references: [message_id])
+  user_id    String
+  user       User     @relation(fields: [user_id], references: [id])
+  read_at    DateTime
+
+  @@id([message_id, user_id])
 }

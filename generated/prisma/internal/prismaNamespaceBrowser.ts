@@ -55,7 +55,12 @@ export const ModelName = {
   Account: 'Account',
   Session: 'Session',
   VerificationToken: 'VerificationToken',
-  Authenticator: 'Authenticator'
+  Authenticator: 'Authenticator',
+  Chat: 'Chat',
+  GroupInfo: 'GroupInfo',
+  ChatMembers: 'ChatMembers',
+  Message: 'Message',
+  MessageRead: 'MessageRead'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -138,6 +143,53 @@ export const AuthenticatorScalarFieldEnum = {
 } as const
 
 export type AuthenticatorScalarFieldEnum = (typeof AuthenticatorScalarFieldEnum)[keyof typeof AuthenticatorScalarFieldEnum]
+
+
+export const ChatScalarFieldEnum = {
+  chat_id: 'chat_id',
+  chat_type: 'chat_type',
+  created_at: 'created_at'
+} as const
+
+export type ChatScalarFieldEnum = (typeof ChatScalarFieldEnum)[keyof typeof ChatScalarFieldEnum]
+
+
+export const GroupInfoScalarFieldEnum = {
+  chat_id: 'chat_id',
+  group_name: 'group_name',
+  owner_id: 'owner_id'
+} as const
+
+export type GroupInfoScalarFieldEnum = (typeof GroupInfoScalarFieldEnum)[keyof typeof GroupInfoScalarFieldEnum]
+
+
+export const ChatMembersScalarFieldEnum = {
+  chat_members_id: 'chat_members_id',
+  chat_id: 'chat_id',
+  user_id: 'user_id'
+} as const
+
+export type ChatMembersScalarFieldEnum = (typeof ChatMembersScalarFieldEnum)[keyof typeof ChatMembersScalarFieldEnum]
+
+
+export const MessageScalarFieldEnum = {
+  message_id: 'message_id',
+  chat_id: 'chat_id',
+  user_id: 'user_id',
+  message_content: 'message_content',
+  sent_at: 'sent_at'
+} as const
+
+export type MessageScalarFieldEnum = (typeof MessageScalarFieldEnum)[keyof typeof MessageScalarFieldEnum]
+
+
+export const MessageReadScalarFieldEnum = {
+  message_id: 'message_id',
+  user_id: 'user_id',
+  read_at: 'read_at'
+} as const
+
+export type MessageReadScalarFieldEnum = (typeof MessageReadScalarFieldEnum)[keyof typeof MessageReadScalarFieldEnum]
 
 
 export const SortOrder = {

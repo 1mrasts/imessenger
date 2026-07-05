@@ -201,6 +201,10 @@ export type UserWhereInput = {
   accounts?: Prisma.AccountListRelationFilter
   sessions?: Prisma.SessionListRelationFilter
   Authenticator?: Prisma.AuthenticatorListRelationFilter
+  groupInfos?: Prisma.GroupInfoListRelationFilter
+  message?: Prisma.MessageListRelationFilter
+  chatMembers?: Prisma.ChatMembersListRelationFilter
+  messageRead?: Prisma.MessageReadListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -214,6 +218,10 @@ export type UserOrderByWithRelationInput = {
   accounts?: Prisma.AccountOrderByRelationAggregateInput
   sessions?: Prisma.SessionOrderByRelationAggregateInput
   Authenticator?: Prisma.AuthenticatorOrderByRelationAggregateInput
+  groupInfos?: Prisma.GroupInfoOrderByRelationAggregateInput
+  message?: Prisma.MessageOrderByRelationAggregateInput
+  chatMembers?: Prisma.ChatMembersOrderByRelationAggregateInput
+  messageRead?: Prisma.MessageReadOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -230,6 +238,10 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   accounts?: Prisma.AccountListRelationFilter
   sessions?: Prisma.SessionListRelationFilter
   Authenticator?: Prisma.AuthenticatorListRelationFilter
+  groupInfos?: Prisma.GroupInfoListRelationFilter
+  message?: Prisma.MessageListRelationFilter
+  chatMembers?: Prisma.ChatMembersListRelationFilter
+  messageRead?: Prisma.MessageReadListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -269,6 +281,10 @@ export type UserCreateInput = {
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   Authenticator?: Prisma.AuthenticatorCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -282,6 +298,10 @@ export type UserUncheckedCreateInput = {
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   Authenticator?: Prisma.AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoUncheckedCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -295,6 +315,10 @@ export type UserUpdateInput = {
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   Authenticator?: Prisma.AuthenticatorUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -308,6 +332,10 @@ export type UserUncheckedUpdateInput = {
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   Authenticator?: Prisma.AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUncheckedUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -433,6 +461,62 @@ export type UserUpdateOneRequiredWithoutAuthenticatorNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAuthenticatorInput, Prisma.UserUpdateWithoutAuthenticatorInput>, Prisma.UserUncheckedUpdateWithoutAuthenticatorInput>
 }
 
+export type UserCreateNestedOneWithoutGroupInfosInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutGroupInfosInput, Prisma.UserUncheckedCreateWithoutGroupInfosInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutGroupInfosInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutGroupInfosNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutGroupInfosInput, Prisma.UserUncheckedCreateWithoutGroupInfosInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutGroupInfosInput
+  upsert?: Prisma.UserUpsertWithoutGroupInfosInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutGroupInfosInput, Prisma.UserUpdateWithoutGroupInfosInput>, Prisma.UserUncheckedUpdateWithoutGroupInfosInput>
+}
+
+export type UserCreateNestedOneWithoutChatMembersInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutChatMembersInput, Prisma.UserUncheckedCreateWithoutChatMembersInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutChatMembersInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutChatMembersNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutChatMembersInput, Prisma.UserUncheckedCreateWithoutChatMembersInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutChatMembersInput
+  upsert?: Prisma.UserUpsertWithoutChatMembersInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutChatMembersInput, Prisma.UserUpdateWithoutChatMembersInput>, Prisma.UserUncheckedUpdateWithoutChatMembersInput>
+}
+
+export type UserCreateNestedOneWithoutMessageInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessageInput, Prisma.UserUncheckedCreateWithoutMessageInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessageInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutMessageNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessageInput, Prisma.UserUncheckedCreateWithoutMessageInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessageInput
+  upsert?: Prisma.UserUpsertWithoutMessageInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMessageInput, Prisma.UserUpdateWithoutMessageInput>, Prisma.UserUncheckedUpdateWithoutMessageInput>
+}
+
+export type UserCreateNestedOneWithoutMessageReadInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessageReadInput, Prisma.UserUncheckedCreateWithoutMessageReadInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessageReadInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutMessageReadNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessageReadInput, Prisma.UserUncheckedCreateWithoutMessageReadInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessageReadInput
+  upsert?: Prisma.UserUpsertWithoutMessageReadInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMessageReadInput, Prisma.UserUpdateWithoutMessageReadInput>, Prisma.UserUncheckedUpdateWithoutMessageReadInput>
+}
+
 export type UserCreateWithoutAccountsInput = {
   id?: string
   name?: string | null
@@ -443,6 +527,10 @@ export type UserCreateWithoutAccountsInput = {
   updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   Authenticator?: Prisma.AuthenticatorCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutAccountsInput = {
@@ -455,6 +543,10 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   Authenticator?: Prisma.AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoUncheckedCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutAccountsInput = {
@@ -483,6 +575,10 @@ export type UserUpdateWithoutAccountsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   Authenticator?: Prisma.AuthenticatorUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -495,6 +591,10 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   Authenticator?: Prisma.AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUncheckedUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutSessionsInput = {
@@ -507,6 +607,10 @@ export type UserCreateWithoutSessionsInput = {
   updatedAt?: Date | string
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   Authenticator?: Prisma.AuthenticatorCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
@@ -519,6 +623,10 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   updatedAt?: Date | string
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   Authenticator?: Prisma.AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoUncheckedCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSessionsInput = {
@@ -547,6 +655,10 @@ export type UserUpdateWithoutSessionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   Authenticator?: Prisma.AuthenticatorUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -559,6 +671,10 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   Authenticator?: Prisma.AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUncheckedUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutAuthenticatorInput = {
@@ -571,6 +687,10 @@ export type UserCreateWithoutAuthenticatorInput = {
   updatedAt?: Date | string
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutAuthenticatorInput = {
@@ -583,6 +703,10 @@ export type UserUncheckedCreateWithoutAuthenticatorInput = {
   updatedAt?: Date | string
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoUncheckedCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutAuthenticatorInput = {
@@ -611,6 +735,10 @@ export type UserUpdateWithoutAuthenticatorInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAuthenticatorInput = {
@@ -623,6 +751,330 @@ export type UserUncheckedUpdateWithoutAuthenticatorInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUncheckedUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutGroupInfosInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  Authenticator?: Prisma.AuthenticatorCreateNestedManyWithoutUserInput
+  message?: Prisma.MessageCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutGroupInfosInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  Authenticator?: Prisma.AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+  message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutGroupInfosInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutGroupInfosInput, Prisma.UserUncheckedCreateWithoutGroupInfosInput>
+}
+
+export type UserUpsertWithoutGroupInfosInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutGroupInfosInput, Prisma.UserUncheckedUpdateWithoutGroupInfosInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutGroupInfosInput, Prisma.UserUncheckedCreateWithoutGroupInfosInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutGroupInfosInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutGroupInfosInput, Prisma.UserUncheckedUpdateWithoutGroupInfosInput>
+}
+
+export type UserUpdateWithoutGroupInfosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  Authenticator?: Prisma.AuthenticatorUpdateManyWithoutUserNestedInput
+  message?: Prisma.MessageUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutGroupInfosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  Authenticator?: Prisma.AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+  message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutChatMembersInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  Authenticator?: Prisma.AuthenticatorCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutChatMembersInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  Authenticator?: Prisma.AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoUncheckedCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutChatMembersInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutChatMembersInput, Prisma.UserUncheckedCreateWithoutChatMembersInput>
+}
+
+export type UserUpsertWithoutChatMembersInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutChatMembersInput, Prisma.UserUncheckedUpdateWithoutChatMembersInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutChatMembersInput, Prisma.UserUncheckedCreateWithoutChatMembersInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutChatMembersInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutChatMembersInput, Prisma.UserUncheckedUpdateWithoutChatMembersInput>
+}
+
+export type UserUpdateWithoutChatMembersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  Authenticator?: Prisma.AuthenticatorUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutChatMembersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  Authenticator?: Prisma.AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUncheckedUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutMessageInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  Authenticator?: Prisma.AuthenticatorCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoCreateNestedManyWithoutOwnerInput
+  chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutMessageInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  Authenticator?: Prisma.AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoUncheckedCreateNestedManyWithoutOwnerInput
+  chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutMessageInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessageInput, Prisma.UserUncheckedCreateWithoutMessageInput>
+}
+
+export type UserUpsertWithoutMessageInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMessageInput, Prisma.UserUncheckedUpdateWithoutMessageInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessageInput, Prisma.UserUncheckedCreateWithoutMessageInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutMessageInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMessageInput, Prisma.UserUncheckedUpdateWithoutMessageInput>
+}
+
+export type UserUpdateWithoutMessageInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  Authenticator?: Prisma.AuthenticatorUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUpdateManyWithoutOwnerNestedInput
+  chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutMessageInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  Authenticator?: Prisma.AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUncheckedUpdateManyWithoutOwnerNestedInput
+  chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutMessageReadInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  Authenticator?: Prisma.AuthenticatorCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutMessageReadInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  Authenticator?: Prisma.AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoUncheckedCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutMessageReadInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessageReadInput, Prisma.UserUncheckedCreateWithoutMessageReadInput>
+}
+
+export type UserUpsertWithoutMessageReadInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMessageReadInput, Prisma.UserUncheckedUpdateWithoutMessageReadInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessageReadInput, Prisma.UserUncheckedCreateWithoutMessageReadInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutMessageReadInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMessageReadInput, Prisma.UserUncheckedUpdateWithoutMessageReadInput>
+}
+
+export type UserUpdateWithoutMessageReadInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  Authenticator?: Prisma.AuthenticatorUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutMessageReadInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  Authenticator?: Prisma.AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUncheckedUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -634,12 +1086,20 @@ export type UserCountOutputType = {
   accounts: number
   sessions: number
   Authenticator: number
+  groupInfos: number
+  message: number
+  chatMembers: number
+  messageRead: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   accounts?: boolean | UserCountOutputTypeCountAccountsArgs
   sessions?: boolean | UserCountOutputTypeCountSessionsArgs
   Authenticator?: boolean | UserCountOutputTypeCountAuthenticatorArgs
+  groupInfos?: boolean | UserCountOutputTypeCountGroupInfosArgs
+  message?: boolean | UserCountOutputTypeCountMessageArgs
+  chatMembers?: boolean | UserCountOutputTypeCountChatMembersArgs
+  messageRead?: boolean | UserCountOutputTypeCountMessageReadArgs
 }
 
 /**
@@ -673,6 +1133,34 @@ export type UserCountOutputTypeCountAuthenticatorArgs<ExtArgs extends runtime.Ty
   where?: Prisma.AuthenticatorWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountGroupInfosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.GroupInfoWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountMessageArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MessageWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountChatMembersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ChatMembersWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountMessageReadArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MessageReadWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -685,6 +1173,10 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
   Authenticator?: boolean | Prisma.User$AuthenticatorArgs<ExtArgs>
+  groupInfos?: boolean | Prisma.User$groupInfosArgs<ExtArgs>
+  message?: boolean | Prisma.User$messageArgs<ExtArgs>
+  chatMembers?: boolean | Prisma.User$chatMembersArgs<ExtArgs>
+  messageRead?: boolean | Prisma.User$messageReadArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -723,6 +1215,10 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
   Authenticator?: boolean | Prisma.User$AuthenticatorArgs<ExtArgs>
+  groupInfos?: boolean | Prisma.User$groupInfosArgs<ExtArgs>
+  message?: boolean | Prisma.User$messageArgs<ExtArgs>
+  chatMembers?: boolean | Prisma.User$chatMembersArgs<ExtArgs>
+  messageRead?: boolean | Prisma.User$messageReadArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -734,6 +1230,10 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     accounts: Prisma.$AccountPayload<ExtArgs>[]
     sessions: Prisma.$SessionPayload<ExtArgs>[]
     Authenticator: Prisma.$AuthenticatorPayload<ExtArgs>[]
+    groupInfos: Prisma.$GroupInfoPayload<ExtArgs>[]
+    message: Prisma.$MessagePayload<ExtArgs>[]
+    chatMembers: Prisma.$ChatMembersPayload<ExtArgs>[]
+    messageRead: Prisma.$MessageReadPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1140,6 +1640,10 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   accounts<T extends Prisma.User$accountsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   sessions<T extends Prisma.User$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Authenticator<T extends Prisma.User$AuthenticatorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$AuthenticatorArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuthenticatorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  groupInfos<T extends Prisma.User$groupInfosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$groupInfosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GroupInfoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  message<T extends Prisma.User$messageArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$messageArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  chatMembers<T extends Prisma.User$chatMembersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$chatMembersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ChatMembersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  messageRead<T extends Prisma.User$messageReadArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$messageReadArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessageReadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1638,6 +2142,102 @@ export type User$AuthenticatorArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.AuthenticatorScalarFieldEnum | Prisma.AuthenticatorScalarFieldEnum[]
+}
+
+/**
+ * User.groupInfos
+ */
+export type User$groupInfosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the GroupInfo
+   */
+  select?: Prisma.GroupInfoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the GroupInfo
+   */
+  omit?: Prisma.GroupInfoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GroupInfoInclude<ExtArgs> | null
+  where?: Prisma.GroupInfoWhereInput
+  orderBy?: Prisma.GroupInfoOrderByWithRelationInput | Prisma.GroupInfoOrderByWithRelationInput[]
+  cursor?: Prisma.GroupInfoWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.GroupInfoScalarFieldEnum | Prisma.GroupInfoScalarFieldEnum[]
+}
+
+/**
+ * User.message
+ */
+export type User$messageArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Message
+   */
+  select?: Prisma.MessageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Message
+   */
+  omit?: Prisma.MessageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MessageInclude<ExtArgs> | null
+  where?: Prisma.MessageWhereInput
+  orderBy?: Prisma.MessageOrderByWithRelationInput | Prisma.MessageOrderByWithRelationInput[]
+  cursor?: Prisma.MessageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MessageScalarFieldEnum | Prisma.MessageScalarFieldEnum[]
+}
+
+/**
+ * User.chatMembers
+ */
+export type User$chatMembersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ChatMembers
+   */
+  select?: Prisma.ChatMembersSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ChatMembers
+   */
+  omit?: Prisma.ChatMembersOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ChatMembersInclude<ExtArgs> | null
+  where?: Prisma.ChatMembersWhereInput
+  orderBy?: Prisma.ChatMembersOrderByWithRelationInput | Prisma.ChatMembersOrderByWithRelationInput[]
+  cursor?: Prisma.ChatMembersWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ChatMembersScalarFieldEnum | Prisma.ChatMembersScalarFieldEnum[]
+}
+
+/**
+ * User.messageRead
+ */
+export type User$messageReadArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MessageRead
+   */
+  select?: Prisma.MessageReadSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MessageRead
+   */
+  omit?: Prisma.MessageReadOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MessageReadInclude<ExtArgs> | null
+  where?: Prisma.MessageReadWhereInput
+  orderBy?: Prisma.MessageReadOrderByWithRelationInput | Prisma.MessageReadOrderByWithRelationInput[]
+  cursor?: Prisma.MessageReadWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MessageReadScalarFieldEnum | Prisma.MessageReadScalarFieldEnum[]
 }
 
 /**
