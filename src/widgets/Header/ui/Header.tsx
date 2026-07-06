@@ -16,7 +16,7 @@ export default async function Header() {
 								<Link href='/profile'>Профиль</Link>
 							</li>
 							<li>
-								<Link href='/friends'>Пользователи</Link>
+								<Link href='/userslist'>Пользователи</Link>
 							</li>
 							<li>
 								<Link href='/chats'>Чаты</Link>
