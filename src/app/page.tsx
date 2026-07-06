@@ -1,9 +1,5 @@
-import { auth } from '@/config/auth'
-import { SignOut } from '@/features/SignOut'
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import styles from './page.module.css'
-import SignIn from './signIn/page'
 
 export const metadata: Metadata = {
 	title: 'Главная | I-Messenger',
@@ -24,12 +20,9 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-	const session = await auth()
 	return (
 		<main className={styles.main}>
-			<p>Главная</p>
-			<Link href='/chats'>Чаты</Link>
-			{session?.user ? <SignOut /> : <SignIn />}
+			<h1>Главная</h1>
 		</main>
 	)
 }
