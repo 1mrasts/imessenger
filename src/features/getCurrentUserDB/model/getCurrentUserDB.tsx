@@ -11,5 +11,13 @@ export async function getCurrentUserDB() {
 	const chatsUserSession = await prisma.chatMembers.findMany({
 		where: { user_id: sessionUserId },
 	})
-	return chatsUserSession
+	const currentUser = await prisma.user.findFirst({
+		where: {
+			name: sessions?.user?.name,
+		},
+	})
+	return {
+		chatsUserSession,
+		currentUser,
+	}
 }
