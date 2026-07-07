@@ -1,6 +1,7 @@
 'use client'
 
 import { sendMessageInDB } from '@/features/sendMessageInDB'
+import { User } from '@/types'
 import { useState } from 'react'
 
 type Props = {
@@ -9,15 +10,7 @@ type Props = {
 		chat_type: 'chat' | 'group'
 		created_at: Date
 	} | null
-	currentUser: {
-		id: string
-		name: string | null
-		email: string
-		image: string | null
-		emailVerified: Date | null
-		createdAt: Date
-		updatedAt: Date
-	} | null
+	currentUser: User | null
 }
 
 export function SendMessage({ chat, currentUser }: Props) {

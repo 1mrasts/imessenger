@@ -1,7 +1,7 @@
 import { auth } from '@/config/auth'
 import { getCurrentUserDB } from '@/features/getCurrentUserDB'
-import { SendMessage } from '@/features/sendMessage'
 import { prisma } from '@/lib/prisma'
+import { ChatWindow } from '@/widgets/ChatWindow'
 import { redirect } from 'next/navigation'
 
 export default async function UserChat({
@@ -38,16 +38,11 @@ export default async function UserChat({
 	})
 
 	return (
-		<div>
-			<h2>{user?.name}</h2>
-			{messages.map(message => (
-				<p key={message.message_id}>
-					{message.user.name}: {message.message_content} -{' '}
-					{message.sent_at.getDate()}.{message.sent_at.getMonth() + 1}.
-					{message.sent_at.getFullYear()}
-				</p>
-			))}
-			<SendMessage chat={chat} currentUser={currentUser} />
-		</div>
+		<ChatWindow
+			user={user}
+			messages={messages}
+			chat={chat}
+			currentUser={currentUser}
+		/>
 	)
 }
