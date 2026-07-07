@@ -10,7 +10,7 @@ export default async function Profile() {
 
 	return (
 		<main>
-			Name: {session.user?.name}
+			Name: {session?.user?.name}
 			<form
 				action={async () => {
 					'use server'

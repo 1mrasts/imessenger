@@ -1,8 +1,16 @@
+import { auth } from '@/config/auth'
 import { getCurrentUserDB } from '@/features/getCurrentUserDB'
 import { StartChat } from '@/features/StartChat'
 import { prisma } from '@/lib/prisma'
+import { redirect } from 'next/navigation'
 
 export default async function UsersList() {
+	const session = await auth()
+
+	if (!session) {
+		redirect('/')
+	}
+
 	const { currentUser } = await getCurrentUserDB()
 	const allUsers = await prisma.user.findMany({
 		where: {
