@@ -16,17 +16,48 @@ export default async function UsersList() {
 		where: {
 			name: { not: currentUser?.name },
 		},
+		include: {
+			chatMembers: {
+				where: {
+					chat: {
+						chat_type: 'chat',
+						AND: [
+							{
+								chatMembers: {
+									some: {
+										user_id: currentUser?.id,
+									},
+								},
+							},
+						],
+					},
+				},
+				include: {
+					chat: true,
+				},
+			},
+		},
 	})
 
 	return (
 		<>
 			<h1>Пользователи</h1>
 			<ul>
-				{allUsers.map(user => (
-					<li key={user.id}>
-						{user.name} <StartChat user={user} />
-					</li>
-				))}
+				{allUsers.map(user => {
+					const hasChat = user.chatMembers.length > 0
+
+					return (
+						<li key={user.id}>
+							{user.name}
+
+							{hasChat ? (
+								<button disabled>+</button>
+							) : (
+								<StartChat user={user} />
+							)}
+						</li>
+					)
+				})}
 			</ul>
 		</>
 	)
