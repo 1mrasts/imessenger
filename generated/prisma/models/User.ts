@@ -205,6 +205,7 @@ export type UserWhereInput = {
   message?: Prisma.MessageListRelationFilter
   chatMembers?: Prisma.ChatMembersListRelationFilter
   messageRead?: Prisma.MessageReadListRelationFilter
+  chatPassword?: Prisma.ChatPasswordListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -222,6 +223,7 @@ export type UserOrderByWithRelationInput = {
   message?: Prisma.MessageOrderByRelationAggregateInput
   chatMembers?: Prisma.ChatMembersOrderByRelationAggregateInput
   messageRead?: Prisma.MessageReadOrderByRelationAggregateInput
+  chatPassword?: Prisma.ChatPasswordOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -242,6 +244,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   message?: Prisma.MessageListRelationFilter
   chatMembers?: Prisma.ChatMembersListRelationFilter
   messageRead?: Prisma.MessageReadListRelationFilter
+  chatPassword?: Prisma.ChatPasswordListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -285,6 +288,7 @@ export type UserCreateInput = {
   message?: Prisma.MessageCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -302,6 +306,7 @@ export type UserUncheckedCreateInput = {
   message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -319,6 +324,7 @@ export type UserUpdateInput = {
   message?: Prisma.MessageUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -336,6 +342,7 @@ export type UserUncheckedUpdateInput = {
   message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -517,6 +524,20 @@ export type UserUpdateOneRequiredWithoutMessageReadNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMessageReadInput, Prisma.UserUpdateWithoutMessageReadInput>, Prisma.UserUncheckedUpdateWithoutMessageReadInput>
 }
 
+export type UserCreateNestedOneWithoutChatPasswordInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutChatPasswordInput, Prisma.UserUncheckedCreateWithoutChatPasswordInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutChatPasswordInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutChatPasswordNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutChatPasswordInput, Prisma.UserUncheckedCreateWithoutChatPasswordInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutChatPasswordInput
+  upsert?: Prisma.UserUpsertWithoutChatPasswordInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutChatPasswordInput, Prisma.UserUpdateWithoutChatPasswordInput>, Prisma.UserUncheckedUpdateWithoutChatPasswordInput>
+}
+
 export type UserCreateWithoutAccountsInput = {
   id?: string
   name?: string | null
@@ -531,6 +552,7 @@ export type UserCreateWithoutAccountsInput = {
   message?: Prisma.MessageCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutAccountsInput = {
@@ -547,6 +569,7 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutAccountsInput = {
@@ -579,6 +602,7 @@ export type UserUpdateWithoutAccountsInput = {
   message?: Prisma.MessageUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -595,6 +619,7 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutSessionsInput = {
@@ -611,6 +636,7 @@ export type UserCreateWithoutSessionsInput = {
   message?: Prisma.MessageCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
@@ -627,6 +653,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSessionsInput = {
@@ -659,6 +686,7 @@ export type UserUpdateWithoutSessionsInput = {
   message?: Prisma.MessageUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -675,6 +703,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutAuthenticatorInput = {
@@ -691,6 +720,7 @@ export type UserCreateWithoutAuthenticatorInput = {
   message?: Prisma.MessageCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutAuthenticatorInput = {
@@ -707,6 +737,7 @@ export type UserUncheckedCreateWithoutAuthenticatorInput = {
   message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutAuthenticatorInput = {
@@ -739,6 +770,7 @@ export type UserUpdateWithoutAuthenticatorInput = {
   message?: Prisma.MessageUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAuthenticatorInput = {
@@ -755,6 +787,7 @@ export type UserUncheckedUpdateWithoutAuthenticatorInput = {
   message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutGroupInfosInput = {
@@ -771,6 +804,7 @@ export type UserCreateWithoutGroupInfosInput = {
   message?: Prisma.MessageCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutGroupInfosInput = {
@@ -787,6 +821,7 @@ export type UserUncheckedCreateWithoutGroupInfosInput = {
   message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutGroupInfosInput = {
@@ -819,6 +854,7 @@ export type UserUpdateWithoutGroupInfosInput = {
   message?: Prisma.MessageUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutGroupInfosInput = {
@@ -835,6 +871,7 @@ export type UserUncheckedUpdateWithoutGroupInfosInput = {
   message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutChatMembersInput = {
@@ -851,6 +888,7 @@ export type UserCreateWithoutChatMembersInput = {
   groupInfos?: Prisma.GroupInfoCreateNestedManyWithoutOwnerInput
   message?: Prisma.MessageCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutChatMembersInput = {
@@ -867,6 +905,7 @@ export type UserUncheckedCreateWithoutChatMembersInput = {
   groupInfos?: Prisma.GroupInfoUncheckedCreateNestedManyWithoutOwnerInput
   message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutChatMembersInput = {
@@ -899,6 +938,7 @@ export type UserUpdateWithoutChatMembersInput = {
   groupInfos?: Prisma.GroupInfoUpdateManyWithoutOwnerNestedInput
   message?: Prisma.MessageUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutChatMembersInput = {
@@ -915,6 +955,7 @@ export type UserUncheckedUpdateWithoutChatMembersInput = {
   groupInfos?: Prisma.GroupInfoUncheckedUpdateManyWithoutOwnerNestedInput
   message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutMessageInput = {
@@ -931,6 +972,7 @@ export type UserCreateWithoutMessageInput = {
   groupInfos?: Prisma.GroupInfoCreateNestedManyWithoutOwnerInput
   chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutMessageInput = {
@@ -947,6 +989,7 @@ export type UserUncheckedCreateWithoutMessageInput = {
   groupInfos?: Prisma.GroupInfoUncheckedCreateNestedManyWithoutOwnerInput
   chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
   messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutMessageInput = {
@@ -979,6 +1022,7 @@ export type UserUpdateWithoutMessageInput = {
   groupInfos?: Prisma.GroupInfoUpdateManyWithoutOwnerNestedInput
   chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMessageInput = {
@@ -995,6 +1039,7 @@ export type UserUncheckedUpdateWithoutMessageInput = {
   groupInfos?: Prisma.GroupInfoUncheckedUpdateManyWithoutOwnerNestedInput
   chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
   messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutMessageReadInput = {
@@ -1011,6 +1056,7 @@ export type UserCreateWithoutMessageReadInput = {
   groupInfos?: Prisma.GroupInfoCreateNestedManyWithoutOwnerInput
   message?: Prisma.MessageCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutMessageReadInput = {
@@ -1027,6 +1073,7 @@ export type UserUncheckedCreateWithoutMessageReadInput = {
   groupInfos?: Prisma.GroupInfoUncheckedCreateNestedManyWithoutOwnerInput
   message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
   chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
+  chatPassword?: Prisma.ChatPasswordUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutMessageReadInput = {
@@ -1059,6 +1106,7 @@ export type UserUpdateWithoutMessageReadInput = {
   groupInfos?: Prisma.GroupInfoUpdateManyWithoutOwnerNestedInput
   message?: Prisma.MessageUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMessageReadInput = {
@@ -1075,6 +1123,91 @@ export type UserUncheckedUpdateWithoutMessageReadInput = {
   groupInfos?: Prisma.GroupInfoUncheckedUpdateManyWithoutOwnerNestedInput
   message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
   chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
+  chatPassword?: Prisma.ChatPasswordUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutChatPasswordInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  Authenticator?: Prisma.AuthenticatorCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutChatPasswordInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  Authenticator?: Prisma.AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+  groupInfos?: Prisma.GroupInfoUncheckedCreateNestedManyWithoutOwnerInput
+  message?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput
+  chatMembers?: Prisma.ChatMembersUncheckedCreateNestedManyWithoutUserInput
+  messageRead?: Prisma.MessageReadUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutChatPasswordInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutChatPasswordInput, Prisma.UserUncheckedCreateWithoutChatPasswordInput>
+}
+
+export type UserUpsertWithoutChatPasswordInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutChatPasswordInput, Prisma.UserUncheckedUpdateWithoutChatPasswordInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutChatPasswordInput, Prisma.UserUncheckedCreateWithoutChatPasswordInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutChatPasswordInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutChatPasswordInput, Prisma.UserUncheckedUpdateWithoutChatPasswordInput>
+}
+
+export type UserUpdateWithoutChatPasswordInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  Authenticator?: Prisma.AuthenticatorUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutChatPasswordInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  Authenticator?: Prisma.AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+  groupInfos?: Prisma.GroupInfoUncheckedUpdateManyWithoutOwnerNestedInput
+  message?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput
+  chatMembers?: Prisma.ChatMembersUncheckedUpdateManyWithoutUserNestedInput
+  messageRead?: Prisma.MessageReadUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -1090,6 +1223,7 @@ export type UserCountOutputType = {
   message: number
   chatMembers: number
   messageRead: number
+  chatPassword: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1100,6 +1234,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   message?: boolean | UserCountOutputTypeCountMessageArgs
   chatMembers?: boolean | UserCountOutputTypeCountChatMembersArgs
   messageRead?: boolean | UserCountOutputTypeCountMessageReadArgs
+  chatPassword?: boolean | UserCountOutputTypeCountChatPasswordArgs
 }
 
 /**
@@ -1161,6 +1296,13 @@ export type UserCountOutputTypeCountMessageReadArgs<ExtArgs extends runtime.Type
   where?: Prisma.MessageReadWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountChatPasswordArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ChatPasswordWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1177,6 +1319,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   message?: boolean | Prisma.User$messageArgs<ExtArgs>
   chatMembers?: boolean | Prisma.User$chatMembersArgs<ExtArgs>
   messageRead?: boolean | Prisma.User$messageReadArgs<ExtArgs>
+  chatPassword?: boolean | Prisma.User$chatPasswordArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1219,6 +1362,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   message?: boolean | Prisma.User$messageArgs<ExtArgs>
   chatMembers?: boolean | Prisma.User$chatMembersArgs<ExtArgs>
   messageRead?: boolean | Prisma.User$messageReadArgs<ExtArgs>
+  chatPassword?: boolean | Prisma.User$chatPasswordArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1234,6 +1378,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     message: Prisma.$MessagePayload<ExtArgs>[]
     chatMembers: Prisma.$ChatMembersPayload<ExtArgs>[]
     messageRead: Prisma.$MessageReadPayload<ExtArgs>[]
+    chatPassword: Prisma.$ChatPasswordPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1644,6 +1789,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   message<T extends Prisma.User$messageArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$messageArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   chatMembers<T extends Prisma.User$chatMembersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$chatMembersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ChatMembersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   messageRead<T extends Prisma.User$messageReadArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$messageReadArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessageReadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  chatPassword<T extends Prisma.User$chatPasswordArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$chatPasswordArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ChatPasswordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2238,6 +2384,30 @@ export type User$messageReadArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.MessageReadScalarFieldEnum | Prisma.MessageReadScalarFieldEnum[]
+}
+
+/**
+ * User.chatPassword
+ */
+export type User$chatPasswordArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ChatPassword
+   */
+  select?: Prisma.ChatPasswordSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ChatPassword
+   */
+  omit?: Prisma.ChatPasswordOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ChatPasswordInclude<ExtArgs> | null
+  where?: Prisma.ChatPasswordWhereInput
+  orderBy?: Prisma.ChatPasswordOrderByWithRelationInput | Prisma.ChatPasswordOrderByWithRelationInput[]
+  cursor?: Prisma.ChatPasswordWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ChatPasswordScalarFieldEnum | Prisma.ChatPasswordScalarFieldEnum[]
 }
 
 /**

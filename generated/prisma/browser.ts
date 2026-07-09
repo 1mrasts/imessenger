@@ -67,3 +67,8 @@ export type Message = Prisma.MessageModel
  * 
  */
 export type MessageRead = Prisma.MessageReadModel
+/**
+ * Model ChatPassword
+ * 
+ */
+export type ChatPassword = Prisma.ChatPasswordModel

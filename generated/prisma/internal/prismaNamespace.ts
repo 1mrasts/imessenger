@@ -393,7 +393,8 @@ export const ModelName = {
   GroupInfo: 'GroupInfo',
   ChatMembers: 'ChatMembers',
   Message: 'Message',
-  MessageRead: 'MessageRead'
+  MessageRead: 'MessageRead',
+  ChatPassword: 'ChatPassword'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -409,7 +410,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "account" | "session" | "verificationToken" | "authenticator" | "chat" | "groupInfo" | "chatMembers" | "message" | "messageRead"
+    modelProps: "user" | "account" | "session" | "verificationToken" | "authenticator" | "chat" | "groupInfo" | "chatMembers" | "message" | "messageRead" | "chatPassword"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1153,6 +1154,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ChatPassword: {
+      payload: Prisma.$ChatPasswordPayload<ExtArgs>
+      fields: Prisma.ChatPasswordFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ChatPasswordFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChatPasswordPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ChatPasswordFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChatPasswordPayload>
+        }
+        findFirst: {
+          args: Prisma.ChatPasswordFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChatPasswordPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ChatPasswordFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChatPasswordPayload>
+        }
+        findMany: {
+          args: Prisma.ChatPasswordFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChatPasswordPayload>[]
+        }
+        create: {
+          args: Prisma.ChatPasswordCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChatPasswordPayload>
+        }
+        createMany: {
+          args: Prisma.ChatPasswordCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ChatPasswordCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChatPasswordPayload>[]
+        }
+        delete: {
+          args: Prisma.ChatPasswordDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChatPasswordPayload>
+        }
+        update: {
+          args: Prisma.ChatPasswordUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChatPasswordPayload>
+        }
+        deleteMany: {
+          args: Prisma.ChatPasswordDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ChatPasswordUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ChatPasswordUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChatPasswordPayload>[]
+        }
+        upsert: {
+          args: Prisma.ChatPasswordUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChatPasswordPayload>
+        }
+        aggregate: {
+          args: Prisma.ChatPasswordAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateChatPassword>
+        }
+        groupBy: {
+          args: Prisma.ChatPasswordGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ChatPasswordGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ChatPasswordCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ChatPasswordCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1303,6 +1378,20 @@ export const MessageReadScalarFieldEnum = {
 } as const
 
 export type MessageReadScalarFieldEnum = (typeof MessageReadScalarFieldEnum)[keyof typeof MessageReadScalarFieldEnum]
+
+
+export const ChatPasswordScalarFieldEnum = {
+  chat_password_id: 'chat_password_id',
+  chat_id: 'chat_id',
+  password_hash: 'password_hash',
+  user_id: 'user_id',
+  failed_attempts: 'failed_attempts',
+  locked_until: 'locked_until',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type ChatPasswordScalarFieldEnum = (typeof ChatPasswordScalarFieldEnum)[keyof typeof ChatPasswordScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1531,6 +1620,7 @@ export type GlobalOmitConfig = {
   chatMembers?: Prisma.ChatMembersOmit
   message?: Prisma.MessageOmit
   messageRead?: Prisma.MessageReadOmit
+  chatPassword?: Prisma.ChatPasswordOmit
 }
 
 /* Types for Logging */

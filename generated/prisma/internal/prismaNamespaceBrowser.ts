@@ -60,7 +60,8 @@ export const ModelName = {
   GroupInfo: 'GroupInfo',
   ChatMembers: 'ChatMembers',
   Message: 'Message',
-  MessageRead: 'MessageRead'
+  MessageRead: 'MessageRead',
+  ChatPassword: 'ChatPassword'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -190,6 +191,20 @@ export const MessageReadScalarFieldEnum = {
 } as const
 
 export type MessageReadScalarFieldEnum = (typeof MessageReadScalarFieldEnum)[keyof typeof MessageReadScalarFieldEnum]
+
+
+export const ChatPasswordScalarFieldEnum = {
+  chat_password_id: 'chat_password_id',
+  chat_id: 'chat_id',
+  password_hash: 'password_hash',
+  user_id: 'user_id',
+  failed_attempts: 'failed_attempts',
+  locked_until: 'locked_until',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type ChatPasswordScalarFieldEnum = (typeof ChatPasswordScalarFieldEnum)[keyof typeof ChatPasswordScalarFieldEnum]
 
 
 export const SortOrder = {

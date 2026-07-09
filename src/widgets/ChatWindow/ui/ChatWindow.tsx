@@ -1,7 +1,8 @@
 'use client'
 
+import { getMessages } from '@/features/getMessage'
 import { SendMessage } from '@/features/sendMessage'
-import { useSocket } from '@/lib/SocketProviders' // твой контекст
+import { useSocket } from '@/lib/SocketProviders'
 import { User } from '@/types'
 import { useEffect, useState } from 'react'
 
@@ -16,7 +17,6 @@ type Message = {
 
 type Props = {
 	user: User | null
-	messages: Message[]
 	chat: {
 		chat_id: number
 		chat_type: 'chat' | 'group'
@@ -25,14 +25,27 @@ type Props = {
 	currentUser: User | null
 }
 
-export function ChatWindow({
-	user,
-	messages: initialMessages,
-	chat,
-	currentUser,
-}: Props) {
+export function ChatWindow({ user, chat, currentUser }: Props) {
 	const socket = useSocket()
-	const [messages, setMessages] = useState<Message[]>(initialMessages)
+	const [messages, setMessages] = useState<Message[]>([])
+	const [loading, setLoading] = useState(true)
+
+	// загрузка сообщений — только когда ChatWindow реально смонтирован (т.е. после ChatGate)
+	useEffect(() => {
+		if (!chat) return
+		let cancelled = false
+
+		getMessages(chat.chat_id).then(data => {
+			if (!cancelled) {
+				setMessages(data)
+				setLoading(false)
+			}
+		})
+
+		return () => {
+			cancelled = true
+		}
+	}, [chat?.chat_id])
 
 	useEffect(() => {
 		if (!socket || !chat) return
@@ -40,7 +53,6 @@ export function ChatWindow({
 		socket.emit('join-chat', chat.chat_id)
 
 		function handleNewMessage(message: Message) {
-			// защита от дублей на всякий случай
 			setMessages(prev => {
 				if (prev.some(m => m.message_id === message.message_id)) return prev
 				return [...prev, message]
@@ -51,13 +63,17 @@ export function ChatWindow({
 
 		return () => {
 			socket.emit('leave-chat', chat.chat_id)
-			socket.off('new-message', handleNewMessage) // передавать ссылку на функцию, не просто имя события!
+			socket.off('new-message', handleNewMessage)
 		}
 	}, [socket, chat?.chat_id])
 
+	if (loading) return <p>Загрузка...</p>
+
 	return (
 		<div>
-			<h2>{user?.name}</h2>
+			<div className='chatUser'>
+				<h2>{user?.name}</h2>
+			</div>
 			{messages.map(message => {
 				const sentAt = new Date(message.sent_at)
 				return (

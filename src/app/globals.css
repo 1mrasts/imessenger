@@ -12,3 +12,13 @@ li {
 	flex-direction: row;
 	gap: 10px;
 }
+.chatUser {
+	display: flex;
+	gap: 10px;
+}
+.hide {
+	display: none;
+}
+.show {
+	display: flex;
+}

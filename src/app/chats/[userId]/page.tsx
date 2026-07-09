@@ -1,6 +1,8 @@
 import { auth } from '@/config/auth'
+import { AddPass } from '@/features/addPass'
 import { getCurrentUserDB } from '@/features/getCurrentUserDB'
 import { prisma } from '@/lib/prisma'
+import { ChatGate } from '@/widgets/ChatGate'
 import { ChatWindow } from '@/widgets/ChatWindow'
 import { redirect } from 'next/navigation'
 
@@ -10,19 +12,12 @@ export default async function UserChat({
 	params: Promise<{ userId: string }>
 }) {
 	const session = await auth()
+	if (!session) redirect('/')
 
-	if (!session) {
-		redirect('/')
-	}
 	const { userId } = await params
-	const user = await prisma.user.findFirst({
-		where: {
-			id: userId,
-		},
-	})
+	const user = await prisma.user.findFirst({ where: { id: userId } })
 	const { currentUser } = await getCurrentUserDB()
 
-	// Находим чат в котором существуют пользователи (по базе chatMembers) currentUser и userId пользователя с которым идёт диалог
 	const chat = await prisma.chat.findFirst({
 		where: {
 			AND: [
@@ -31,18 +26,23 @@ export default async function UserChat({
 			],
 		},
 	})
-	const messages = await prisma.message.findMany({
-		where: { chat_id: chat?.chat_id },
-		orderBy: { sent_at: 'asc' },
-		include: { user: true },
+
+	if (!chat) {
+		// нет общего чата — сюда либо создание чата, либо редирект
+		redirect('/')
+	}
+
+	const chatPassword = await prisma.chatPassword.findUnique({
+		where: { chat_id: chat.chat_id },
 	})
+	const hasPassword = !!chatPassword
 
 	return (
-		<ChatWindow
-			user={user}
-			messages={messages}
-			chat={chat}
-			currentUser={currentUser}
-		/>
+		<>
+			<AddPass existPassword={hasPassword} chat_id={chat.chat_id} />
+			<ChatGate chat_id={chat.chat_id} hasPassword={hasPassword}>
+				<ChatWindow user={user} chat={chat} currentUser={currentUser} />
+			</ChatGate>
+		</>
 	)
 }
